@@ -15,7 +15,7 @@ process.env.PUBLIC = app.isPackaged ? process.env.DIST : join(process.env.DIST_E
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
-import { searchPkg }  from './searchPkg'
+import { searchPkg, downloadPkg }  from './handlePkg'
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
@@ -119,4 +119,9 @@ ipcMain.handle('open-win', (event, arg) => {
 ipcMain.handle('onreceivePkg', async (event, pkgName) => {
   return await searchPkg(pkgName)
 })
+ipcMain.handle('ondownloadPkg', async (event, pkgName) => {
+  return await downloadPkg(pkgName)
+})
+
+
 

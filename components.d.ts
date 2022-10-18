@@ -7,7 +7,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AButton: typeof import('ant-design-vue/es')['Button']
+    ADescriptions: typeof import('ant-design-vue/es')['Descriptions']
+    ADescriptionsItem: typeof import('ant-design-vue/es')['DescriptionsItem']
     AInputSearch: typeof import('ant-design-vue/es')['InputSearch']
+    ASpin: typeof import('ant-design-vue/es')['Spin']
     SearchInfo: typeof import('./src/components/searchInfo.vue')['default']
   }
 }
