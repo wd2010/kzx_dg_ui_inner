@@ -1,0 +1,52 @@
+{
+  "name": "kzx-dg-ui-inner",
+  "version": "2.1.0",
+  "main": "dist-electron/main/index.js",
+  "description": "Really simple Electron + Vue + Vite boilerplate.",
+  "author": "viki",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build && electron-builder"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.2",
+    "electron": "^21.1.0",
+    "electron-builder": "^23.3.3",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.4",
+    "vite-electron-plugin": "^0.4.4",
+    "vue": "^3.2.40",
+    "vue-tsc": "^0.40.13"
+  },
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:3344"
+    }
+  },
+  "keywords": [
+    "electron",
+    "rollup",
+    "vite",
+    "vue3",
+    "vue"
+  ],
+  "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
+    "@vueuse/core": "^9.3.0",
+    "@vueuse/electron": "^9.3.0",
+    "ant-design-vue": "^3.2.13",
+    "libnpmpack": "^4.1.3",
+    "libnpmpublish": "^6.0.5",
+    "normalize-package-data": "^5.0.0",
+    "semver": "^7.3.8",
+    "spdx-expression-parse": "^3.0.1",
+    "unplugin-vue-components": "^0.22.8",
+    "uuid": "^9.0.0",
+    "validate-npm-package-license": "^3.0.4"
+  }
+}
