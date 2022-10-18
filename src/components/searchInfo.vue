@@ -57,28 +57,14 @@ const onSearch = async (val: string) => {
   }
 }
 
-const exportDataToFile = function(blobData: any, fileName: string) {
-  debugger
-  if (!blobData.size) return
-  const blob = new Blob(blobData)
-  const fName = `${fileName}.zip`
-  const elink = document.createElement('a')
-
-  elink.download = fName
-  elink.style.display = 'none'
-  elink.href = URL.createObjectURL(blob)
-  document.body.appendChild(elink)
-  elink.click()
-  URL.revokeObjectURL(elink.href)
-  document.body.removeChild(elink)
-}
-
 const handleDownload = async () => {
   try {
     isDownload.value = true
-    const data = await (window as any).ipc.downloadPkg(searchValRef.value)
-    console.log(data)
-    exportDataToFile(data, fileNameRef.value)
+    const fileNameDir = fileNameRef.value ? fileNameRef.value.split('.').slice(0, -1) : searchValRef.value
+    const data = await (window as any).ipc.downloadPkg(searchValRef.value, fileNameDir)
+    if (data) {
+      message.success(`下载成功，文件位于目录 "下载->${fileNameDir}"`)
+    }
   } catch (e) {
     message.error('下载失败:', e.message)
   } finally {

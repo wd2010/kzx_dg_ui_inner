@@ -5,8 +5,8 @@ contextBridge.exposeInMainWorld('ipc', {
   async searchPkg(pkgName) {
     return await ipcRenderer.invoke('onreceivePkg', pkgName)
   },
-  async downloadPkg(pkgName) {
-    return await ipcRenderer.invoke('ondownloadPkg', pkgName)
+  async downloadPkg(pkgName, fileName) {
+    return await ipcRenderer.invoke('ondownloadPkg', pkgName, fileName)
   }
 })
 

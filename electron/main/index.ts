@@ -119,8 +119,8 @@ ipcMain.handle('open-win', (event, arg) => {
 ipcMain.handle('onreceivePkg', async (event, pkgName) => {
   return await searchPkg(pkgName)
 })
-ipcMain.handle('ondownloadPkg', async (event, pkgName) => {
-  return await downloadPkg(pkgName)
+ipcMain.handle('ondownloadPkg', async (event, pkgName, fileName) => {
+  return await downloadPkg(pkgName, fileName)
 })
 
 
